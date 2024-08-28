@@ -1,0 +1,23 @@
+<div class="container">
+    <br>
+    <h2>Check time</h2>
+    <h4>Enter latitude and longitude</h4>
+    <div class="col-lg-6 col-md-6 alineacion card">
+        <form [formGroup]="formulario" (ngSubmit)="consultar()">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Latitude</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" 
+              aria-describedby="emailHelp" formControlName="latitud">
+                <p class="text-danger" *ngIf="formulario.get('latitud')?.invalid && formulario.get('latitud')?.touched">Write latitude please</p>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Longitude</label>
+              <input type="text" class="form-control" 
+              id="exampleInputPassword1" formControlName="longitud">
+              <p class="text-danger" *ngIf="formulario.get('longitud')?.invalid && formulario.get('longitud')?.touched">Write longitude please</p>
+            </div>
+            <button type="submit" class="btn btn-primary">Check</button>
+          </form>
+          <p class="text-danger" *ngIf="showError"> {{mensajeError}}</p>
+    </div>
+</div>
